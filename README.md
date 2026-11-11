@@ -1,12 +1,16 @@
 # Hi, I'm King
 
-I build software for people who operate production systems. Over nine years in platform engineering, I have worked on logs, monitoring, application tracing, and deployment automation.
+I started as a Java developer in 2016, took responsibility for operations platform development in November 2019, and began operating production Kubernetes environments in 2024.
 
-Two projects show how I approach different problems:
+My work has included deploying an operations platform on Kubernetes, integrating SkyWalking probes, and building cluster diagnostics with RBAC-scoped access. When an application team needed tracing without an in-process agent, I evaluated eBPF collection and tested its limits on ARM64. On Kylin V10 SP3 with kernel 4.19, we verified the HTTP/1.x request path end to end.
 
-- [Notify Hub](https://github.com/King-bj/rc_jinla) accepts notifications over HTTP and delivers them asynchronously. The interesting part is what happens after a provider fails or a caller sends the same request twice.
-- [MindRound](https://github.com/King-bj/mindRound) is a local desktop app for conversations with book-inspired personas. I am exploring how to separate each participant’s context and when an agent should ask before using a tool.
+## Selected engineering notes
 
-I also build smaller tools for myself. Habitat Agent helps me see what is running on a Linux host. Pocket Atlas began as a way to collect clouds and grew into a personal photo collection.
+- [Why Kubernetes replicas generated duplicate IDs](https://docs.jinla.fun/posts/k8s-id) — how moving from VMs to pods changed instance identity, and where a hash-based workaround can still collide.
+- [Sizing a monitoring and logging platform](https://docs.jinla.fun/posts/ops-cap) — a worked example that estimates ingestion rates and identifies which measurements to collect before scaling.
 
-I write about incidents and design decisions in [my engineering blog](https://docs.jinla.fun/about). For remote collaboration, you can reach me through the contact details there.
+## Code sample
+
+[Notify Hub's notification dispatcher](https://github.com/King-bj/rc_jinla/blob/main/src/main/java/com/notifyhub/dispatcher/NotificationDispatcher.java) is part of a small interview project. It shows how I schedule HTTP deliveries, retry failed attempts and record exhausted tasks. A successful remote call followed by a failed local commit can still result in a repeat delivery.
+
+[Engineering blog](https://docs.jinla.fun/) · [Contact me](mailto:jlnwcy@gmail.com)
