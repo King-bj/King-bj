@@ -4,7 +4,11 @@ I started as a Java developer in 2016, took responsibility for operations platfo
 
 My work has included deploying an operations platform on Kubernetes, integrating SkyWalking probes, and building cluster diagnostics with RBAC-scoped access. When an application team needed tracing without an in-process agent, I evaluated eBPF collection and tested its limits on ARM64. On Kylin V10 SP3 with kernel 4.19, we verified the HTTP/1.x request path end to end.
 
+[Public résumé (中文)](https://docs.jinla.fun/resume)
+
 ## Selected engineering notes
+
+- [Tracing HTTP/1.x on Kylin ARM64 with kernel 4.19](https://docs.jinla.fun/posts/kylin-ebpf-tracing) — why we tried collecting outside the application process, and which request path I verified on the older kernel.
 
 - [Why Kubernetes replicas generated duplicate IDs](https://docs.jinla.fun/posts/k8s-id) — how moving from VMs to pods changed instance identity, and where a hash-based workaround can still collide.
 - [Sizing a monitoring and logging platform](https://docs.jinla.fun/posts/ops-cap) — a worked example that estimates ingestion rates and identifies which measurements to collect before scaling.
